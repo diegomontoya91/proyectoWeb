@@ -1,0 +1,55 @@
+<%= link_to 'Reiniciar la Venta' , cart_clear_path %>
+<br><br>
+<h1>Venta</h1>
+
+
+
+<br><br>
+<% total = 0 %>
+
+<div class="col-sm-6">
+	<table class="table table-bordered table-hover table-striped ">
+	<thead>
+	    <tr class="success">
+	      <th align="right">Nombre</th>
+	      <th>Precio</th>
+	      <th>Cantidad</th>
+	      <th>Sub Total</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @cart.each do | id , quantity | %>
+		<% product = Product.find_by_id(id) %>
+	      <tr>
+	        <td align="center"><%= link_to product.nombre, product %></td>
+	        <td align="center"><%= number_to_currency(product.precio , :unit => '$') %></td>
+	        <td align="center"><%= quantity %></td>
+	        <td align="center"><%= number_to_currency(quantity*product.precio , :unit => '$') %></td>
+	       </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</div>
+<!--
+<br><br><br><br><br><br><br><br>
+<ul>
+<% @cart.each do | id , quantity | %>
+	<% product = Product.find_by_id(id) %>
+
+		<li>
+			<%= link_to product.nombre, product %>
+			<p><%= number_to_currency(product.precio , :unit => '$') %></p>
+			<p>Cantidad: <%= quantity %></p>
+
+		</li><br>
+
+		<% total += quantity * product.precio %>
+
+	<% end %>
+-->
+
+<br><br><br><br><br><br><br><br>
+<p><strong>Total : <%= number_to_currency(total, :unit => 'COP $ ') %></strong></p>
+
+</ul>

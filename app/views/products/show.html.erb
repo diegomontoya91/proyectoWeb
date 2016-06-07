@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @product.nombre %></h1>
+<br>
+<div class="col-sm-3">
+<table class="table table-bordered table-hover table-striped ">
+<tr>
+  <td>
+     <strong>Código:</strong>
+  </td>
+  <td>
+    <%= @product.codigo %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <strong>Descripción:</strong>
+  </td>
+  <td>
+    <%= @product.descripcion %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <strong>Cantidad:</strong>
+  </td>
+  <td>
+    <%= @product.cantidad %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <strong>Precio:</strong>
+  </td>
+  <td>
+    <%= number_to_currency(@product.precio , :unit => '$')  %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <strong>Proveedor:</strong>
+  </td>
+  <td>
+    <%= @product.proveedor %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <strong>Precioproveedor:</strong>
+  </td>
+  <td>
+    <%= @product.precioProveedor %>
+  </td>
+</tr>
+
+</table>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<!--
+<p>
+  <strong>Código:</strong>
+  <%= @product.codigo %>
+</p>
+
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @product.descripcion %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @product.cantidad %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= number_to_currency(@product.precio , :unit => '$')  %>
+</p>
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @product.proveedor %>
+</p>
+
+<p>
+  <strong>Precioproveedor:</strong>
+  <%= @product.precioProveedor %>
+</p>
+<br>
+-->
+<%= link_to 'Editar', edit_product_path(@product) %> |
+<%= link_to 'Regresar', products_path %>

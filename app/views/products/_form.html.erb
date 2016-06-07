@@ -1,0 +1,75 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> No se ha podido crear el producto:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <br> <br> 
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <strong>Código</strong><br> 
+      <%= f.number_field :codigo, class: 'form-control' %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :nombre %><br>
+      <%= f.text_field :nombre , class: 'form-control' %>
+    </div>
+  </div>
+  <br><br><br>
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <strong>Descripción<br></strong>
+      <%= f.text_area :descripcion , class: 'form-control' %>
+    </div>
+  </div><br>
+  <br><br><br>
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :cantidad %><br>
+      <%= f.number_field :cantidad , class: 'form-control' %>
+    </div>
+  </div>
+  <br><br><br>
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :precio %><br>
+      <%= f.number_field :precio , class: 'form-control' %>
+    </div>
+  </div>
+  <br><br><br>
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :proveedor %><br>
+      <%= f.text_field :proveedor , class: 'form-control' %>
+    </div>
+  </div>
+  <br><br><br>
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <strong>Precio Proveedor<br></strong>
+      <%= f.number_field :precioProveedor , class: 'form-control' %>
+    </div>
+  </div>
+  <br><br><br>
+  <button type="submit" class="btn btn-primary">Crear Producto</button>
+<% end %>
+<br>
